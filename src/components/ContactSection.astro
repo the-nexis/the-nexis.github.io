@@ -6,6 +6,7 @@ const visibleContacts = contacts.filter(contact => contact.href);
 {visibleContacts.length > 0 && (
   <section id="contact" class="contact-section" aria-labelledby="contact-title">
     <div class="section-heading"><h2 id="contact-title">Contact</h2><span class="eyebrow">04 / Get in touch</span></div>
+    <p class="contact-intro">Feel free to reach out to me on:</p>
     <ul class="contact-list">
       {visibleContacts.map(contact => (
         <li>

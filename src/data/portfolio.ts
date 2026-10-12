@@ -3,7 +3,7 @@ export const profile = {
   nickname: 'Nexis',
   title: 'Nexis',
   description: 'Things I’m building and experimenting with.',
-  about: '',
+  about: 'Paranoid crypto anarchist trying to make the world a happier place. I love coffee, metal music and hiking in mountains. Currently hanging around Libertyloft in Prague',
   github: 'https://github.com/the-nexis',
 };
 
