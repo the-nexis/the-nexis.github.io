@@ -1,0 +1,12 @@
+---
+import { profile } from '../data/portfolio';
+---
+<header class="site-header">
+  <a class="wordmark" href="/" aria-label={`${profile.name} home`}><span class="brand-mark" aria-hidden="true">[n]</span>{profile.name}</a>
+  <nav aria-label="Main navigation">
+    <a href="/#projects">Projects</a>
+    <a href="/blog/">Blog</a>
+    <a href="/#about">About</a>
+    <a href={profile.github}>GitHub <span aria-hidden="true">↗</span></a>
+  </nav>
+</header>

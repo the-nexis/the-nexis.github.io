@@ -1,6 +1,6 @@
 # the-nexis portfolio
 
-A minimal, static Astro portfolio for https://the-nexis.github.io. Uses TypeScript and plain CSS; no UI framework or server required.
+A minimal, dark Astro portfolio for https://the-nexis.github.io, centered on cypherpunk, digital privacy, and crypto. Uses TypeScript, plain CSS, and system fonts; no UI framework or server required.
 
 ## Requirements
 
@@ -36,13 +36,36 @@ Run `make` or `make help` to list the targets. Run `make build` before `make pre
 
 ## Customize
 
-- `src/data/portfolio.ts`: name, hero title, biography, GitHub link, and project entries. The starter projects are explicitly labeled placeholders. Set a project's optional `href` to its real repository or demo URL to display a link.
+- `src/data/portfolio.ts`: name, hero title, biography, GitHub link, and project entries. The project list starts empty and displays the empty state until you add entries. Each entry needs `title`, `description`, `tags`, and `status`. Set its optional `href` to a repository or demo URL to display a link.
 - `src/pages/index.astro`: landing page sections and supporting copy.
 - `src/components/ProjectCard.astro`: reusable project card.
 - `src/layouts/Layout.astro`: page metadata and shared HTML.
 - `src/styles/global.css`: colors, typography, responsive layout.
 - `public/`: files copied directly into the build (favicon, future images).
 - `astro.config.mjs`: canonical site URL. This username repository is served at `/`, so no repository base path is needed.
+
+## Write a blog post
+
+Add a `.md` file to `src/content/blog/`, for example `my-first-post.md`:
+
+```md
+---
+title: "My first post"
+description: "A short summary for the post list."
+date: 2026-10-12
+draft: false
+---
+
+Your Markdown goes here.
+
+## A heading
+
+Write text, add links, lists, images, or fenced code blocks.
+```
+
+The filename determines the URL (`/blog/my-first-post/`). Posts appear newest first on `/blog/`; the homepage shows the latest three. `draft: true` excludes a post from both lists and from generated pages. Delete or replace `example-post.md` before publishing your own writing.
+
+The site uses Astro's built-in Markdown rendering and content collections, with no additional dependencies. Shared navigation and homepage sections follow **Projects → Blog → About**.
 
 ## Publish on GitHub Pages
 

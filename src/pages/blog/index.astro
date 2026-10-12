@@ -1,0 +1,19 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import Header from '../../components/Header.astro';
+import PostList from '../../components/PostList.astro';
+import { profile } from '../../data/portfolio';
+import { getPosts } from '../../data/blog';
+const posts = await getPosts();
+---
+<Layout title={`Blog — ${profile.name}`} description="Notes on projects, ideas, and things learned along the way.">
+  <div class="site-shell">
+    <Header />
+    <main id="main" class="blog-index">
+      <p class="eyebrow">Notes & writing</p>
+      <h1>Blog</h1>
+      {posts.length ? <PostList posts={posts} /> : <p class="section-intro">No posts yet.</p>}
+    </main>
+    <footer><a href="/">← Home</a><span>© {new Date().getFullYear()} {profile.name}</span></footer>
+  </div>
+</Layout>
