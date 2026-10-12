@@ -8,3 +8,7 @@ dist/
 *.log
 .DS_Store
 Thumbs.db
+
+# Local blog examples
+/src/content/blog/example-post.md
+/src/content/blog/lorem-ipsum.md
