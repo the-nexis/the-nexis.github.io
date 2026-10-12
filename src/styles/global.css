@@ -88,6 +88,19 @@ h3 { font-size: 20px; font-weight: 500; letter-spacing: -.025em; margin: 28px 0 
 .contact-arrow { margin-left: auto; font-size: 16px; padding-left: 16px; border-left: 1px solid #090b0a40; }
 footer { display: flex; justify-content: space-between; gap: 24px; padding: 24px 0; border-top: 1px solid var(--line); font-size: 10px; line-height: 1.7; color: var(--muted); }
 footer::after { content: ''; width: 52px; height: 18px; flex-shrink: 0; background: repeating-linear-gradient(90deg, var(--line) 0 2px, transparent 2px 5px, var(--line) 5px 6px, transparent 6px 9px); order: -1; }
+.tipjar-section { position: relative; border-top: 1px solid var(--line); padding: 34px 0 56px; }
+.tipjar-section::before { content: ''; position: absolute; top: -1px; left: 0; width: 48px; height: 3px; background: var(--accent); }
+.tipjar-intro { max-width: 520px; color: var(--muted); font-size: 14px; line-height: 1.9; }
+.tipjar-panel { display: grid; grid-template-columns: 240px minmax(0, 1fr); gap: 40px; align-items: center; margin-top: 40px; padding: 32px; border: 1px solid var(--line); background: #090b0acc; }
+.tipjar-qr { display: block; background: white; }
+.tipjar-qr svg { display: block; width: 100%; height: auto; }
+.tipjar-details > p { color: var(--muted); font-size: 13px; line-height: 1.9; }
+.tipjar-details .lightning-address { color: var(--accent); user-select: all; overflow-wrap: anywhere; font-size: 16px; }
+.tipjar-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 24px; margin-top: 24px; }
+.copy-address { border: 0; background: transparent; color: var(--accent); font: 11px var(--mono); text-decoration: underline; text-underline-offset: 5px; cursor: pointer; padding: 10px 0; }
+.copy-address:focus-visible { outline: 2px solid var(--accent); outline-offset: 5px; }
+.copy-status { min-height: 25px; }
+@media (max-width: 760px) { .tipjar-panel { grid-template-columns: 1fr; padding: 24px; gap: 24px; } .tipjar-qr { width: min(100%, 240px); } }
 .blog-index { padding: 64px 0; min-height: 65vh; }
 .blog-index > .eyebrow { color: var(--accent); margin-bottom: 28px; }
 .post-page { max-width: 740px; margin: auto; padding: 48px 0 72px; }

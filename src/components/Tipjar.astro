@@ -1,0 +1,39 @@
+---
+import QRCode from 'qrcode';
+import { bech32 } from '@scure/base';
+import { lightningAddress } from '../data/tipjar';
+const [name, domain] = lightningAddress.split('@');
+const endpoint = `https://${domain}/.well-known/lnurlp/${encodeURIComponent(name)}`;
+const lnurl = bech32.encode('lnurl', bech32.toWords(new TextEncoder().encode(endpoint)), 2000).toUpperCase();
+const walletLink = `lightning:${lnurl}`;
+const qr = await QRCode.toString(lnurl, {
+  type: 'svg', margin: 3, errorCorrectionLevel: 'M',
+  color: { dark: '#090b0a', light: '#ffffff' },
+});
+---
+      <div class="tipjar-panel">
+        <a class="tipjar-qr" href={walletLink} aria-label="Open tipjar in your Lightning wallet">
+          <div aria-hidden="true" set:html={qr} />
+        </a>
+        <div class="tipjar-details">
+          <p>Scan with a Lightning wallet, or open the link below. Choose the amount in your wallet.</p>
+          <p class="lightning-address">{lightningAddress}</p>
+          <div class="tipjar-actions">
+            <a class="button" href={walletLink}><span aria-hidden="true">ϟ</span> Open wallet <span aria-hidden="true">↗</span></a>
+            <button class="copy-address" type="button" data-address={lightningAddress}>Copy address</button>
+          </div>
+          <p class="copy-status" role="status" aria-live="polite"></p>
+        </div>
+      </div>
+<script>
+  const button = document.querySelector<HTMLButtonElement>('.copy-address');
+  const status = document.querySelector<HTMLElement>('.copy-status');
+  button?.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(button.dataset.address ?? '');
+      if (status) status.textContent = 'Address copied.';
+    } catch {
+      if (status) status.textContent = 'Select the address above to copy it manually.';
+    }
+  });
+</script>
