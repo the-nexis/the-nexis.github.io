@@ -1,0 +1,19 @@
+---
+interface Props { name: string }
+const { name } = Astro.props;
+---
+{name === 'Nostr' ? (
+  <img class="contact-icon" src="/icons/nostr.svg" width="24" height="24" alt="" aria-hidden="true" />
+) : (
+<svg class="contact-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+  {name === 'Discord' && <>
+    <path fill="currentColor" d="M7 4.5 8 7a18 18 0 0 1 8 0l1-2.5 3 1.2c1.7 3 2.6 6.2 2.6 9.7-1.6 1.5-3.4 2.6-5.4 3.1l-1.2-2a13 13 0 0 0 2.1-1.1 16 16 0 0 1-12.2 0A13 13 0 0 0 8 16.5l-1.2 2c-2-.5-3.8-1.6-5.4-3.1 0-3.5.9-6.7 2.6-9.7L7 4.5Z" />
+    <ellipse cx="8.3" cy="11.5" rx="1.6" ry="1.9" fill="var(--accent)" />
+    <ellipse cx="15.7" cy="11.5" rx="1.6" ry="1.9" fill="var(--accent)" />
+  </>}
+  {name === 'Signal' && <>
+    <path d="M5 18.5 3.5 22l5-1.5A9.5 9.5 0 1 0 5 18.5Z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-dasharray="2.4 1.8" stroke-linejoin="round" />
+    <path d="M7.5 15.5 7 18l3-1a6.5 6.5 0 1 0-2.5-1.5Z" fill="currentColor" />
+  </>}
+</svg>
+)}

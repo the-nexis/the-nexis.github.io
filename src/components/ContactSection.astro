@@ -1,0 +1,21 @@
+---
+import { contacts } from '../data/portfolio';
+import ContactIcon from './ContactIcon.astro';
+const visibleContacts = contacts.filter(contact => contact.href);
+---
+{visibleContacts.length > 0 && (
+  <section id="contact" class="contact-section" aria-labelledby="contact-title">
+    <div class="section-heading"><h2 id="contact-title">Contact</h2><span class="eyebrow">04 / Get in touch</span></div>
+    <ul class="contact-list">
+      {visibleContacts.map(contact => (
+        <li>
+          <a class="button contact-button" href={contact.href}>
+            <ContactIcon name={contact.label} />
+            <span>{contact.label}</span>
+            <span class="contact-arrow" aria-hidden="true">↗</span>
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+)}
