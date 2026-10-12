@@ -6,7 +6,10 @@ else
 NPM ?= npm
 endif
 
-.PHONY: help install dev check build preview
+NODE ?= node
+export TITLE SLUG
+
+.PHONY: help install dev check build preview post
 
 help:
 	@echo make install - Install dependencies from the lockfile
@@ -14,6 +17,7 @@ help:
 	@echo make check   - Run Astro and TypeScript diagnostics
 	@echo make build   - Generate the production site in dist/
 	@echo make preview - Serve the production build locally
+	@echo make post TITLE="Post title" - Create a Markdown draft
 
 install:
 	$(NPM) ci
@@ -29,3 +33,6 @@ build:
 
 preview:
 	$(NPM) run preview
+
+post:
+	$(NODE) scripts/new-post.mjs
