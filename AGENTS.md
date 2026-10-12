@@ -52,6 +52,7 @@ For code or style changes, run `npm run check` and `npm run build`. Documentatio
 - `src/layouts/Layout.astro`: page metadata and shared HTML.
 - `src/styles/global.css`: colors, typography, responsive layout.
 - `public/`: files copied directly into the build (favicon, future images).
+- RSS channel artwork uses `public/favicon.png`, a 64x64 PNG version of `public/favicon.svg`. Keep both in sync when changing the favicon. The PNG also provides an HTML favicon fallback for feed readers.
 - `astro.config.mjs`: canonical site URL. This username repository is served at `/`, so no repository base path is needed.
 
 ## Write a blog post
