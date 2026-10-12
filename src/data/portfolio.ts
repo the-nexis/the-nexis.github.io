@@ -1,6 +1,7 @@
 export const profile = {
   name: 'the-nexis',
-  title: 'the-nexis',
+  nickname: 'Nexis',
+  title: 'Nexis',
   description: 'Things I’m building and experimenting with.',
   about: '',
   github: 'https://github.com/the-nexis',
