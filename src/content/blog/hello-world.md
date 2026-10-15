@@ -17,6 +17,6 @@ Also, I'd like to experiment with dApps, probably on Ethereum or Monad. Solana s
 
 Anyway, enough blabbering. Thanks for reading! •‿•
 
-##### Per Audacia Ad Astra!
+**Per Audacia Ad Astra!**
 
 
